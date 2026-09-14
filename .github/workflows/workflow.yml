@@ -13,16 +13,11 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run linter
+      - name: Lint with ESLint
         run: npm run lint
 
-      - name: Run unit tests
-        run: npm test
+      - name: Run unit tests with Jest
+        run: npm test -- --coverage
